@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Request Header Parser Microservice</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="header">
+                API: Request Header Parser Microservice
+            </h1>
+            <blockquote>
+                User stories:
+                <ul>1) I can pass a URL as a parameter and I will receive a shortened URL in the JSON response.</ul>
+                <ul>2) If I pass an invalid URL that doesn't follow the valid http://www.example.com format, the JSON response will contain an error instead.</ul>
+                <ul>3) When I visit that shortened URL, it will redirect me to my original link.</ul>
+            </blockquote>
+            <h3>Example creation usage:</h3>
+            <code>URL/new/https://www.google.com</code><br>
+            <h3>Example creation output:</h3>
+            <code>
+                {
+                  "original_url": "http://www.google.com",
+                  "short_url": "URL/1"
+                }
+            </code>
+            <h3>Usage:</h3>
+            <code>URL/1</code><br>
+            <h3>Will redirect to:</h3>
+            <code>https://www.google.com</code><br>
+            <footer class="row navbar navbar-fixed-bottom text-center">
+                <a href="https://github.com/LovroM/Whoami-ms-py">Git repo</a>
+            </footer>
+        </div>
+    </body>
+</html>
