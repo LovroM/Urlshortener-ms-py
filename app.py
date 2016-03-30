@@ -5,7 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://USER:PASS@localhost/DB_NAME"
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:pass@localhost/urls"
 db = SQLAlchemy(app)
 
 
