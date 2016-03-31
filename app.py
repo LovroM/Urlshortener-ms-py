@@ -5,7 +5,8 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:pass@localhost/urls"
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgres://jilimbqdchsyqh:XFLKG4A-rhWtDUnZBLhq-6lWSg@ec2-54-225-197-143.compute-1.amazonaws.com:5432/d704u3v0mlnj1"
+
 db = SQLAlchemy(app)
 
 
@@ -30,7 +31,7 @@ def index():
 def new_link(new_url):
     
     # To be changed when I know the heroku url path.
-    APP_PATH = "app_path/"
+    APP_PATH = "urlshortener-ms-py.herokuapp.com/"
     
     http_valid_format = re.compile("(https?:\/\/\w+\.\w+.+)")
     # First checks if the inserted url matches a valid url format.
