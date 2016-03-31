@@ -1,6 +1,6 @@
 import re
 
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, redirect
 from flask_sqlalchemy import SQLAlchemy
 
 
@@ -22,6 +22,10 @@ class ShortUrl(db.Model):
 def index():
     return render_template("index.html")
 
+@app.route("/test")
+def test():
+    item = ShortUrl.query.get(1)
+    return item.url
 
 #  Creating a new short url.
 #  (Path converter accepts slashes)
@@ -50,8 +54,13 @@ def new_link(new_url):
 # Route that accepts an int id that is supposed to be a short url 
 @app.route("/<int:id>")
 def get_link(id):
-    # Check the databse for existing id and redirect : else return error
-    return jsonify(error = "This url is not in the database.")
+    
+    # Check the databse for existing id.
+    temp_item = ShortUrl.query.get(id)
+    if temp_item:
+        return redirect(temp_item.url, code=302)
+    else:
+        return jsonify(error = "This url is not in the database.")
 
 
 # Runs server
